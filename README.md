@@ -34,6 +34,7 @@ $ npm run build:linux
 ```
 
 |-dist......................#electron打包输出exe的文件夹
+
 |-out.......................#vite打包输出js文件夹
 |-node_modules..............#依赖文件
 |-resoources................#资源文件图标
