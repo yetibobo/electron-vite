@@ -1,0 +1,40 @@
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.web.json", // 扩展 Electron Toolkit 的 Web 配置
+  "include": [
+    "src/renderer/src/env.d.ts",
+    "src/renderer/src/**/*",
+    "src/renderer/src/**/*.vue",
+    "src/preload/*.d.ts"
+  ],
+  "compilerOptions": { // TypeScript 编译器选项
+    "composite": true, // 启用复合项目支持
+    "baseUrl": ".", // 基础路径设置为当前目录
+    "paths": { // 路径别名配置
+      "@renderer/*": [
+        "src/renderer/src/*"
+      ], 
+      "vue": ["node_modules/vue/dist/vue.d.ts"] // 确保使用 Vue 的类型定义
+    }
+  }
+}
+
+
+// 这个文件是 Electron Vite 项目的 TypeScript 配置文件
+// 它扩展了 @electron-toolkit/tsconfig 的 Web 配置，并
+// 包含了 Electron Vite 的特定配置选项。
+// 主要用于配置 TypeScript 编译器选项和包含的文件。
+// 根据这个配置文件，TypeScript 编译器将会使用 Electron Vite 的 Web配置，并且会包含指定的文件和类型定义。
+// 这使得开发者可以在 Electron Vite 项目中使用 TypeScript，同时
+// 编译时，src/renderer/src/env.d.ts 和 src/renderer/src 中的类型定义将被正确解析。
+// 这个配置文件确保了 TypeScript 编译器能够正确处理 Electron Vite 的
+// 特定配置和文件结构，使得开发者可以更方便地编写和维护
+// 前端代码
+// 这个配置文件还设置了模块解析策略和路径别名，使得在项目中引用模块时更加方便和一致。
+// 例如，可以使用 @renderer/* 来引用 src/renderer/src 下的模块，这样可以避免相对路径的混乱和冗长。
+// 这个配置文件还确保了 Vue 的类型定义被正确包含，使得开发者可以在
+// Electron Vite 项目中使用 Vue 的类型提示和 IntelliSense 功能。
+// 这个配置文件是 Electron Vite 项目中前端部分的 TypeScript 配置文件，确保了前端代码的类型安全和开发体验。
+// 这个配置文件还设置了模块解析策略和路径别名，使得在项目中引用模块时更加方便和一致。
+// 例如，可以使用 @renderer/* 来引用 src/renderer/src 下的模块，这样可以避免相对路径的混乱和冗长。
+// 这个配置文件还确保了 Vue 的类型定义被正确包含，使得开发者可以在
+// Electron Vite 项目中使用 Vue 的类型提示和 IntelliSense 功能。

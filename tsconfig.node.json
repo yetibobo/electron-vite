@@ -1,0 +1,24 @@
+//这个文件是 Electron Vite 项目的 TypeScript 配置文件
+// 它扩展了 @electron-toolkit/tsconfig 的 Node.js 配置，并
+// 包含了 Electron Vite 的特定配置选项。
+// 主要用于配置 TypeScript 编译器选项和包含的文件。
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json", // 扩展 Electron Toolkit 的 Node.js 配置
+  "include": ["electron.vite.config.*", "src/main/**/*", "src/preload/**/*"],  // 包含 Electron Vite 配置文件和主进程、预加载脚本的所有 TypeScript 文件
+  "compilerOptions": { // TypeScript 编译器选项
+    "moduleResolution": "bundler", // 模块解析策略设置为 bundler 以适应打包工具
+    //bundier 主要用于现代打包工具，如 Vite 和 Webpack
+    // 这种解析方式更适合处理 ESM（ECMAScript Modules）和
+    // 现代 JavaScript 特性，能够更好地与这些工具集成
+    // 其他可选值包括 "node" 和 "classic"
+    // bundler 中文意思是“打包器”或“捆绑器”
+    "types": ["electron-vite/node","vue","@vue/runtime-dom"] // 包含的类型定义，支持 Electron Vite、Vue 和 Vue 的运行时 DOM
+  }
+}
+
+
+//根据这个配置文件，TypeScript 编译器将会使用 Electron Vite 的 Node.js 配置，并且会包含指定的文件和类型定义。
+// 这使得开发者可以在 Electron Vite 项目中使用 TypeScript，同时
+// 编译时，src/preload/index.d.ts 和 src/main/index.ts 中的类型定义将被正确解析。
+// 这个配置文件确保了 TypeScript 编译器能够正确处理 Electron Vite 的
+// 特定配置和文件结构，使得开发者可以更方便地编写和维护

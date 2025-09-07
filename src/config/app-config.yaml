@@ -1,0 +1,50 @@
+# MyElecVit 应用配置文件
+App:
+  headless: true # 无头模式
+  title: 专业技术人员学习新干线 # 网页title名
+  logintitle: 浙江政务服务网 # 登录页面title名
+  url: https://learning.hzrs.hangzhou.gov.cn/#/ # 目标网址
+  loginurl: https://user.zjzwfw.gov.cn/pc/login?1=1&servicecode=xxxgx # 登录网址
+  js: Object.defineProperties(navigator, {webdriver:{get:()=>undefined}}); #修改浏览器环境navigator.webdriver属性，使其始终返回 undefined
+  urlPattern: hangzhou.gov.cn # 网页匹配模式
+  pattern: 进入学时管理系统|学员登录 # 网页匹配模式
+  click1: 学时管理系统 # 按钮点击文本
+  text1: 学员登录 # 文本
+  text2: 在线学习系统 # 文本
+  loginTime: 1756223177423 # 登录时间
+Function:
+  text1: 已学课程 # 文本点击
+  text2: 进入在线学习系统 # 文本点击
+  text3: //div[@class="title"]/div/div[@class="all"] # 点击查看所有
+  xpath1: //span[@class='el-pagination__total is-first'] # 共几页的xpath码
+  xpath2: //div[@style='float: right; padding-right: 25px;'] # 欢迎您的xpath码
+  xpath3: //li[@aria-current="true"]/following-sibling::li[1] # 激活数字的xpath码的下一下li元素
+  xpath4: //span[@class='el-only-child__content el-tooltip__trigger el-tooltip__trigger'] # 已学课程名称xpath码
+  couPattern: /.*\]\s*/, '' # 正则表达式，用于匹配课程名称保留[一般公需]后课程名称的内容
+  xpathGenReq: //*[@id="app"]/div/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/span # 一般公需课xpath码
+  xpathIndReq: //*[@id="app"]/div/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[3]/span # 行业公需课xpath码
+  xpathProReq: //*[@id="app"]/div/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[4]/span # 专业课xpath码
+Scheme:
+  chose: //div[@class="flex-box"]/div[@class="selectList"]/div[2]/div/div/div[2] # 点击选择课程(--所有--)
+  chosetext: //div[@class="flex-box"]/div[@class="selectList"]/div[2]/div/div/div[1]//span # 当前选框内显示的文本
+  text1: //li/span[text()='一般公需'] # 选择文本
+  text2: //li/span[text()='行业公需'] # 选择文本
+  text3: //li/span[text()='专业课程'] # 选择文本
+  button: 查询 # 查询按钮
+  genReqSet: 18 # 一般公需
+  indReqSet: 18 # 行业公需
+  proReqSet: 60 # 专业课
+  yearsSet: 1 # 学年
+Scheduler:
+  text1: //div[@class='itemBox']//div/span #页面课程名称一页应该有30个
+  text2: //li[@aria-current="true"]/following-sibling::li[1] # 激活数字的xpath码的下一下li元素
+  text3: //td[contains(text(),'分钟')] # 多少分钟的xpath码
+  text4: //td[contains(text(),'学时')] # 多少学分的xpath码
+  button: 立即学习 # 开始学习按钮
+  message_box: //div[@class="el-message-box__message"] # 弹出框信息
+  message1: 您的学习时间已达到要求 # 学习完成提示信息
+  message2: 请在2分钟之内点击确定 # 检查时提示信息
+  message3: 是否继续学习 # 新开已学课程提示信息
+  confirm:  //button[@class="el-button el-button--primary"] # 确认按钮xpath码
+  dismiss: //button[@class="el-button"] # 取消按钮xp
+  video: //video # 视频元素
